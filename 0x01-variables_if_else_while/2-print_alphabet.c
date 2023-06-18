@@ -9,12 +9,12 @@
 
 int main(void)
 {
-	int alp = 97;
+	char alp;
 
-	while (alp == 97 && alp < 123)
+	for (alp = 'a'; alp <= 'z'; alp++)
 	{
 		putchar(alp);
-		alp = alp + 1;
+		putchar('\n');
 	}
 	return (0);
 }
