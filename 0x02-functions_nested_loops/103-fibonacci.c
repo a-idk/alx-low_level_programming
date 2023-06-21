@@ -14,7 +14,6 @@ int main(void)
 	unsigned long int b = 1;
 	unsigned long int c = 2;
 	unsigned long int sum = c;
-	unsigned long int new;
 
 	/* Begin the while loop */
 	while ((c  + b) < 4000000)
