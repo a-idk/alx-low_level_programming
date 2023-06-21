@@ -10,23 +10,24 @@
  */
 int main(void)
 {
-	unsigned long int sum = 0;
 	int a;
 	unsigned long int b = 1;
 	unsigned long int c = 2;
+	unsigned long int sum = c;
 	unsigned long int new;
 
-	/* Begin for loop */
-	for (a = 1; a <= 33; ++a)
+	/* Begin the while loop */
+	while ((c  + b) < 4000000)
 	{
-		if (((b % 2) == 0) && (b < 4000000))
+		c = c + b;
+		if (c % 2 == 0)
 		{
-			sum = sum + b;
+			sum = sum + c;
+			b = c - b;
+			++a;
 		}
-		new = b + c;
-		b = c;
-		c = new;
 	}
 	printf("%lu\n", sum);
+
 	return (0);
 }
