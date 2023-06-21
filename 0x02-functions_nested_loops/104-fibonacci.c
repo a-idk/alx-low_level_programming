@@ -10,7 +10,7 @@
 int main(void)
 {
 	int tally, l = 1000000000;
-	int d = l - 1;
+	unsigned long int d = l - 1;
 	unsigned long int prev = 0, prev_a, prev_b,  next = 1;
 	unsigned long int next_a, next_b, sum = 0, a, b, new;
 
