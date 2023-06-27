@@ -10,25 +10,27 @@
  * Return: Always 0 (Success!)
  */
 
+
 int main(void)
 {
-	int pswd[150], count, sum = 0, final;
+	int sum = 0, pass[100], count, final;
 
 	srand(time(NULL));
 
 	for ( ; count < 100; count++)
 	{
-		pswd[count] = rand() % 80;
-		sum = sum + (pswd[count] + '0');
-		putchar(pswd[count] + '0');
+		pass[count] = rand() % 78;
+		sum = sum + (pass[count] + '0');
+		putchar(pass[count] + '0');
 
-		if (((3500 - sum) - '0') < 80)
+		if ((2772 - sum) - '0' < 78)
 		{
-			final = 3500 - sum - '0';
-			sum = sum + final;
+			final = 2772 - sum - '0';
+			sum = sum +  final;
 			putchar(final + '0');
 			break;
 		}
 	}
+
 	return (0);
 }
