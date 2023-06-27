@@ -19,11 +19,11 @@ int main(void)
 
 	for ( ; count < 100; count++)
 	{
-		pass[count] = rand() % 78;
+		pass[count] = rand() % 75;
 		sum = sum + (pass[count] + '0');
 		putchar(pass[count] + '0');
 
-		if ((2772 - sum) - '0' < 78)
+		if ((2772 - sum) - '0' < 75)
 		{
 			final = 2772 - sum - '0';
 			sum = sum +  final;
