@@ -16,7 +16,7 @@ char *leet(char *c)
 
 	for (index1 = 0; c[index1] != '\0'; index1++)
 	{
-		for (index2 = 0; index2 <= 7; index2++)
+		for (index2 = 0; index2 <= 10; index2++)
 		{
 			if (c[index1] == s1[index2])
 			{
