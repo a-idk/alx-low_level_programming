@@ -6,30 +6,6 @@
 #include <ctype.h>
 
 /**
- * _num - function that checks the given string for digit
- * @s: given string
- * @a_idk
- *
- * Return: Always 0 (Success)
- */
-
-int _num(char *s)
-{
-	unsigned int i = 0;
-
-	/* loop to count string */
-	while (i < strlen(s))
-	{
-		if (!isdigit(s[i]))
-		{
-			return (0);
-		}
-		i++;
-	}
-	return (1);
-}
-
-/**
  * main - function that adds positive numbers
  * @argc: number of command line arguments
  * @argv: array of arguments
@@ -41,22 +17,29 @@ int _num(char *s)
 int main(int argc, char *argv[])
 
 {
-	int tally = 1, s2i, result = 0;
+	int index, x, add = 0;
+	char *s;
 
-	while (tally < argc)
+	if (argc > 1)
 	{
-		if (_num(argv[tally]))
+		for (index = 1; index < argc; index++)
 		{
-			s2i =atoi(argv[tally]);
-			result = result + s2i;
+			s = argv[index];
+			for (x = 0; s[x] != '\0'; x++)
+			{
+				if (s[x] < 48 || s[x] > 57)
+				{
+					printf("Error\n");
+					return (1);
+				}
+			}
 		}
-		else
-		{
-			printf("Error\n");
-			return (1);
-		}
-		tally++;
 	}
-	printf("%d\n", result);
+	for (index = 1; index < argc; index++)
+	{
+		add = add + atoi(argv[index]);
+	}
+
+	printf("%d\n", add);
 	return (0);
 }
