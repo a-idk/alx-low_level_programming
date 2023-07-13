@@ -12,10 +12,11 @@
 
 void *malloc_checked(unsigned int b)
 {
-	/* initializing variables */
+	/* declaring pointer */
 	void *s;
 
 	s = malloc(b);
+
 	/* check for null return by malloc */
 	if (s == NULL)
 	{
