@@ -40,10 +40,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(dog);
 		return (NULL);
 	}
-	while (age1 < owner1)
+	for (age1 = 0; age1 < owner1; age1++)
 	{
 		dog->owner[age1] = owner[age1];
-		age++;
 	}
 	return (dog);
 }
