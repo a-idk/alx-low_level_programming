@@ -10,6 +10,7 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
+	/* variable declaration */
 	dog_t *dog;
 	unsigned int name1, age1, owner1;
 
