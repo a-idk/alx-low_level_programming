@@ -1,13 +1,13 @@
 # 0x0F. C - Function pointers
 
-**This task covers the following topics:
-***
+This task covers the following topics:
+
 - What are function pointers and how to use them
 - What does a function pointer exactly hold
 - Where does a function pointer point to in the virtual memory
-***
+
 ## Task Description
-********
+
 1. Task 0. What's my name
 Write a function that prints a name.
 |0-print_name.c|
