@@ -1,6 +1,5 @@
 /* include header files */
 #include "variadic_functions.h"
-#include <stdio.h>
 #include <stdarg.h>
 
 /**
@@ -16,20 +15,20 @@ int sum_them_all(const unsigned int n, ...)
 	/* declaring and initializing variable */
 	int result = 0;
 	unsigned int index;
-	va_list x;
+	va_list xlist;
 
 	if (n == 0)
 	{
 		return (0);
 	}
 	/* starting the iterating arguments of va_list x */
-	va_start(x, n);
+	va_start(xlist, n);
 
 	for (index = 0; index < n; index++)
 	{
-		result += va_arg(x, int); /* retrieve an argument */
+		result += va_arg(xlist, int); /* retrieve an argument */
 	}
 	/* freeing the va_list x */
-	va_end(x);
+	va_end(xlist);
 	return (result);
 }
