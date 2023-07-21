@@ -14,7 +14,7 @@
 int sum_them_all(const unsigned int n, ...)
 {
 	/* declaring and initializing variable */
-	unsigned int result = 0;
+	int result = 0;
 	unsigned int index;
 	va_list x;
 
