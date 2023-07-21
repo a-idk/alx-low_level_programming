@@ -15,13 +15,17 @@ int sum_them_all(const unsigned int n, ...)
 {
 	/* declaring and initializing variable */
 	unsigned int result = 0;
-	unsigned int i;
+	unsigned int index;
 	va_list x;
 
+	if (n == 0)
+	{
+		return (0);
+	}
 	/* starting the iterating arguments of va_list x */
 	va_start(x, n);
 
-	for (i = 0; i < n; i++)
+	for (index = 0; index < n; index++)
 	{
 		result += va_arg(x, int); /* retrieve an argument */
 	}
