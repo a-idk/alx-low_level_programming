@@ -3,6 +3,8 @@
 
 /* header files */
 #include <stddef.h>
+#include <string.h>
+#include <stdlib.h>
 
 /**
  * struct list_s - user defined function that singly linked list
