@@ -7,13 +7,13 @@
 /**
  * read_textfile - function that creates a file
  * @filename: name of the file to be created
- * @txt_content: NULL terminated string to write to file
+ * @letters: NULL terminated string to write to file
  * @a_idk
  *
  * Return: 1 if SUCCESS else -1 if FAIL
  */
 
-ssize_t read_textfile(const char *filename, size_t txt_content)
+ssize_t read_textfile(const char *filename, size_t letters)
 {
 	ssize_t rd, wr, fd;
 	char *buff;
@@ -27,12 +27,13 @@ ssize_t read_textfile(const char *filename, size_t txt_content)
 	}
 
 	/* allocating dynamic memory */
-	buff = malloc(sizeof(char) * txt_content);
+	buff = malloc(sizeof(char) * letters);
 
-	rd = read(fd, buff, txt_content);
+	rd = read(fd, buff, letters);
 	wr = write(STDOUT_FILENO, buff, rd);
 
 	/* close file and memry */
-	free(buff), close(fd);
+	free(buff);
+	close(fd);
 	return (wr);
 }
