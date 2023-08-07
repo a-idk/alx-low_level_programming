@@ -15,25 +15,37 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t rd, wr, fd;
+	/* declaring variables */
+	ssize_t wr, rd;
+	int f;
 	char *buff;
 
 	/* opening the file in read only mode */
-	fd = open(filename, O_RDONLY);
+	f = open(filename, O_RDONLY);
 	/* checking for error in opening */
-	if (fd == -1)
+	if (f == -1)
 	{
-		return (-1);
+		return (0);
 	}
-
 	/* allocating dynamic memory */
 	buff = malloc(sizeof(char) * letters);
-
-	rd = read(fd, buff, letters);
+	if (buff == NULL)
+		return (0);
+	/* reading operation */
+	rd = read(f, buff, letters);
+	if (rd == -1)
+	{
+		free(buff), close(f);
+		return (0);
+	}
+	/* writing operation */
 	wr = write(STDOUT_FILENO, buff, rd);
-
+	if (wr == -1)
+	{
+		free(buff), close(f);
+		return (0);
+	}
 	/* close file and memry */
-	free(buff);
-	close(fd);
-	return (wr);
+	close(f);
+	return (rd);
 }
