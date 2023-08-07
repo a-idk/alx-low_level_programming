@@ -1,6 +1,8 @@
 #ifndef _MAIN_H
 #define _MAIN_H
 
+#define BUFF_SIZE 1024
+
 /* include library files */
 #include <unistd.h>
 #include <fcntl.h>

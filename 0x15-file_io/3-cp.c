@@ -6,22 +6,62 @@
 #include <stdlib.h>
 
 /**
- * bytes_to_buff - function that sets 1024 bytes to a buffer
- * @d_file: The name of the file buffer is storing chars for
+ * cannot_read - function that checks for error 98 - cannot read
+ * @file1: the file to check for error
+ * @buff: the value of the buffer
+ * @argv: argument vector
  * @a_idk
  *
- * Return: A pointer to the newly-allocated buffer
+ * Return: Nada!
  */
 
-char *bytes_to_buff(char *d_file)
+void cannot_read(int file1, char *buff, char *argv)
 {
-    /* declaring variable */
-	char *buff;
+	if (file1 < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: can't read from the file %s\n", argv);
+		free(buff);
+		exit(98);
+	}
+}
 
-	buff = malloc(sizeof(char) * 1024); /* allocating dynamic memory */
-	if (buff == NULL) /* check for null value after allocating mem */
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", d_file), exit(99);
-	return (buff);
+
+/**
+ * cannot_write - function that checks for error 99 - cannot read
+ * @file1: the file to check for error
+ * @buff: the value of the buffer
+ * @argv: argument vector
+ * @a_idk
+ *
+ * Return: Nada!
+ */
+
+void cannot_write(int file1, char *buff, char *argv)
+{
+	if (file1 < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: can't write to %s\n", argv);
+		free(buff), exit(99);
+	}
+}
+
+/**
+ * cannot_close - function that checks for error 100 - cannot read
+ * @file1: the file to check for error
+ * @buff: the value of the buffer
+ * @argv argument vector
+ * @a_idk
+ *
+ * Return: Nada!
+ */
+
+void cannot_close(int file1, char *buff)
+{
+	if (file1 < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: can't close fd %i\n", file1);
+		free(buff), exit(100);
+	}
 }
 
 /**
@@ -37,42 +77,36 @@ int main(int argc, char *argv[])
 {
 	/* declaring variables | fd = open, rd = read, wr = write */
 	char *buff1;
-	int file_from, fd, rd, wr, check1, check2;
+	int fd, check1, check2, f;
 
 	/* ensuring 2 arguments per time */
 	if (argc != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
-	/* file operations */
-	buff1 = bytes_to_buff(argv[2]);
-	file_from = open(argv[1], O_RDONLY);
-	rd = read(file_from, buff1, 1024);
-	fd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
-	while (rd > 0)
+	/* dynamic memory allocation */
+	buff1 = malloc(sizeof(char) * BUFF_SIZE);
+	if (!buff1)
 	{
-		if (file_from == -1 || rd == -1)
-		{
-			dprintf(STDERR_FILENO,
-				"Error: Can't read from file %s\n", argv[1]);
-			free(buff1), exit(98);
-		}
-		wr = write(fd, buff1, rd);
-		if (wr == -1 || fd == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			free(buff1);
-			exit(99);
-		}
-		/* file operations */
-		rd = read(file_from, buff1, 1024);
-		fd = open(argv[2], O_WRONLY | O_APPEND);
+		return (0);
 	}
-	free(buff1);
+	/* file operation */
+	fd = open(argv[1], O_RDONLY);
+	cannot_read(fd, buff1, argv[1]);
+	f = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	cannot_write(f, buff1, argv[2]);
+
+	while (check2 >= BUFF_SIZE)
+	{
+		check1 = read(fd, buff1, BUFF_SIZE);
+		if (check1 == 0)
+			break;
+		cannot_read(check1, buff1, argv[1]);
+		check2 = write(f, buff1, check1);
+		cannot_write(check2, buff1, argv[2]);
+	}
+	check1 = close(f);
+	cannot_close(check1, buff1);
 	check1 = close(fd);
-	check2 = close(file_from);
-	if (check1 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd), exit(100);
-	if (check2 == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from), exit(100);
+	cannot_close(check1, buff1);
+	free(buff1);
 	return (0);
 }
