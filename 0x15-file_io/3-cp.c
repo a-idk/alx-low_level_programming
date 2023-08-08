@@ -5,9 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *create_buffer(char *file);
-void close_file(int fd);
-
 /**
  * error_100 - function that closes file descriptors
  * @fd: The file descriptor to be closed
@@ -27,7 +24,7 @@ void error_100(int fd)
 }
 
 /**
- * bytes_to__buff - function that allocates 1024 bytes for a buffer
+ * bytes_to_buff - function that allocates 1024 bytes for a buffer
  * @f: The name of the file buffer is storing
  * @a_idk
  *
@@ -76,12 +73,12 @@ int main(int argc, char *argv[])
 	rd = read(file1, buf, 1024);
 	file2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	do {
+	while (rd > 0)
+	{
 		if (rd == -1 || file1 == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			free(buf);
-			exit(98);
+			free(buf), exit(98);
 		}
 		/* file operations - write */
 		wr = write(file2, buf, rd);
@@ -93,7 +90,7 @@ int main(int argc, char *argv[])
 		rd = read(file1, buf, 1024);
 		file2 = open(argv[2], O_WRONLY | O_APPEND);
 
-	} while (rd > 0);
+	}
 	free(buf), error_100(file1), error_100(file2);
 	return (0);
 }
