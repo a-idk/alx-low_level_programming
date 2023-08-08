@@ -73,8 +73,7 @@ int main(int argc, char *argv[])
 	rd = read(file1, buf, 1024);
 	file2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	while (rd > 0)
-	{
+	do {
 		if (rd == -1 || file1 == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
@@ -90,7 +89,7 @@ int main(int argc, char *argv[])
 		rd = read(file1, buf, 1024);
 		file2 = open(argv[2], O_WRONLY | O_APPEND);
 
-	}
+	} while (rd > 0);
 	free(buf), error_100(file1), error_100(file2);
 	return (0);
 }
