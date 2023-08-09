@@ -26,7 +26,7 @@ void is_elf(unsigned char *e_ident)
 	{
 		if ((e_ident[indx] != 'E') && (e_ident[indx] != 'L') &&
 		    (e_ident[indx] != 'F') && (e_ident[indx] != 127))
-			dprintf(STDERR_FILENO, "Error: Not an ELF file\n"), exit(98);
+		c	dprintf(STDERR_FILENO, "Error: Not an ELF file\n"), exit(98);
 	}
 }
 
@@ -41,7 +41,7 @@ void is_elf(unsigned char *e_ident)
 void magic_num(unsigned char *e_ident)
 {
 	/* declaring variables */
-	int indx = 0;
+	int indx;
 
 	/* Print the leading word "Magic: " */
 	printf(" Magic: ");
