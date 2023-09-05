@@ -45,7 +45,7 @@ void magic_num(unsigned char *e_ident)
 	int indx;
 
 	/* Print the leading word "Magic: " */
-	printf(" Magic: ");
+	printf("  Magic:   ");
 
 	for (indx = 0; indx < EI_NIDENT; indx++)
 	{
@@ -68,7 +68,7 @@ void magic_num(unsigned char *e_ident)
 void class_print(unsigned char *e_ident)
 {
 	/* Print the leading word "Class: " */
-	printf(" Class: ");
+	printf("  Class:                             ");
 
 	switch (e_ident[EI_CLASS])
 	{
@@ -97,7 +97,7 @@ void class_print(unsigned char *e_ident)
 void data_printer(unsigned char *e_ident)
 {
 	/* Print the leading word "Data: " */
-	printf(" Data: ");
+	printf("  Data:                              ");
 
 	switch (e_ident[EI_DATA])
 	{
@@ -127,7 +127,8 @@ void data_printer(unsigned char *e_ident)
 void version_printer(unsigned char *e_ident)
 {
 	/* Print the leading word "Version: " */
-	 printf(" Version: %d", e_ident[EI_VERSION]);
+	printf("  Version:                           %d",
+	       e_ident[EI_VERSION]);
 
 	switch (e_ident[EI_VERSION])
 	{
@@ -152,7 +153,7 @@ void version_printer(unsigned char *e_ident)
 void os_abi_printer(unsigned char *e_ident)
 {
 	/* Print the leading word "OS/ABI: " */
-	printf(" OS/ABI: ");
+	printf("  OS/ABI:                            ");
 
 	switch (e_ident[EI_OSABI])
 	{
@@ -202,7 +203,8 @@ void os_abi_printer(unsigned char *e_ident)
 void abi_printer(unsigned char *e_ident)
 {
 	/* Print the leading word "ABI Version: " */
-	printf(" ABI Version: %d\n", e_ident[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n",
+	       e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -222,7 +224,7 @@ void type_printer(unsigned int e_type, unsigned char *e_ident)
 	}
 
 	/* Print the leading word "Type: " */
-	printf(" Type: ");
+	printf("  Type:                              ");
 
 	switch (e_type)
 	{
@@ -258,7 +260,7 @@ void type_printer(unsigned int e_type, unsigned char *e_ident)
 void entry_pt(unsigned long int e_entry, unsigned char *e_ident)
 {
 	/* Print the leading word "Entry point address: " */
-	printf(" Entry point address: ");
+	printf("  Entry point address:               ");
 
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
