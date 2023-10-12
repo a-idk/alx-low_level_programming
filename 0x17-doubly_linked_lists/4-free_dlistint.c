@@ -15,6 +15,6 @@ void free_dlistint(dlistint_t *head)
 	/* declaring variable */
 	dlistint_t *cur_node;
 
-	while (head != NULL)
+	while (head)
 		cur_node = head, head = head->next, free(cur_node);
 }
