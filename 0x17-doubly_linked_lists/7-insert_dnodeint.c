@@ -26,7 +26,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	add_node = malloc(sizeof(dlistint_t));
 	/* check for NULL value in malloc */
 	if (add_node == NULL)
-		return NULL;
+		return (NULL);
 	add_node->n = n;
 
 	if (idx == 0)
