@@ -6,7 +6,7 @@
  * sum_dlistint - function that returns the sum of all
  * the data (n) of a dlistint_t linked list
  * @head: head ptr
- * @a_dk coding 
+ * @a_dk coding
  *
  * Return: sum
  */
