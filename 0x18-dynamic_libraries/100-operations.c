@@ -39,7 +39,7 @@ int sub(int a, int b)
  * Return: solution (int)
  */
 
-int mult(int a, int b)
+int mul(int a, int b)
 {
 	return (a * b);
 }
