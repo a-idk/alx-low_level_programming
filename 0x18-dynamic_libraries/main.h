@@ -1,6 +1,10 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
+/* Header files */
+#include <stdlib.h>
+#include <stdio.h>
+
 /* Prototypes */
 int _putchar(char c);
 int _islower(int c);
