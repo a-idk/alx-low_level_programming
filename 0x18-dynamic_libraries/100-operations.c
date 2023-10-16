@@ -31,7 +31,7 @@ int sub(int a, int b)
 
 
 /**
- * mult - function that multiply two integers
+ * mul - function that multiply two integers
  * @a: first integer
  * @b: second integer
  * @a_idk coding
