@@ -17,18 +17,19 @@ hash_table_t *hash_table_create(unsigned long int size)
 	/* allocating dynamic memory for hash table */
 	new_hasht = malloc(sizeof(hash_table_t));
 	/* check for NULL value */
-	if ((new_hasht == NULL) || (size == 0))
+	if (new_hasht == NULL)
 	{
 		return (NULL);
 	}
+
 	/* allocating dynamic memory to the array also */
-	new_hasht->array = malloc(sizeof(void *) * size);
+	new_hasht->size, new_hasht->array = malloc(sizeof(void *) * size);
 	/* chekcing for NULL value */
 	if (new_hasht->array == NULL)
 	{
 		return (NULL);
 	}
-	new_hasht->size = size;
+/*	new_hasht->size = size; */
 	/* creating the new hash table */
 	for (idx = 0; idx < size; idx += 1)
 	{
