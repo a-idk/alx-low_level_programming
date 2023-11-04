@@ -1,9 +1,9 @@
-## 0x1A. C - Hash tables
+# 0x1A. C - Hash tables
 C
 Algorithm
 Data structure
 
-# Project description
+## Project description
 This project uses tasks that covers the following concepts:
 - What is a hash function
 - What makes a good hash function
