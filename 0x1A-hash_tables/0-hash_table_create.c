@@ -28,6 +28,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	/* chekcing for NULL value */
 	if (new_hasht->array == NULL)
 	{
+		free(new_hasht);
 		return (NULL);
 	}
 	new_hasht->size = size;
