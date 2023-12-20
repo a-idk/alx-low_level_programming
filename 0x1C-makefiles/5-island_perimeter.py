@@ -24,20 +24,23 @@ def island_perimeter(grid):
     """
     perimeter = 0
     flat = []  # flatten 2D grid to 1D list
+    # count = 0
 
     for idx in range(len(grid)):
         for idx2 in range(len(grid[idx])):
             flat.append(grid[idx][idx2])
+            # if grid[idx][idx2] == 1:
+            #    count = count + 1
 
-        for idx in range(len(flat)):
-            if (idx > 0) and (idx < len(flat) - 1):
-                if (flat[idx] == 0 and flat[idx - 1] == 1):
-                    perimeter = perimeter + 1
-                elif (flat[idx] == 0 and flat[idx + 1] == 1):
-                    perimeter = perimeter + 1
+    for idx in range(len(flat)):
+        if (idx > 0) and (idx < len(flat) - 1):
+            if (flat[idx] == 0 and flat[idx - 1] == 1):
+                perimeter = perimeter + 1
+            if (flat[idx] == 0 and flat[idx + 1] == 1):
+                perimeter = perimeter + 1
 
-        if perimeter % 2 == 0:
-            perimeter = perimeter * 2
-        else:
-            perimeter = 2 * perimeter - 1
-        return perimeter
+    if perimeter % 2 == 0:
+        perimeter = perimeter * 2
+    else:
+        perimeter = (2 * perimeter) - 1
+    return perimeter
