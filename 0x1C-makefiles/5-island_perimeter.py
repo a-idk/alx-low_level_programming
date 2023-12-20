@@ -34,9 +34,10 @@ def island_perimeter(grid):
 
     for idx in range(len(flat)):
         if (idx > 0) and (idx < len(flat) - 1):
-            if (flat[idx] == 0 and flat[idx - 1] == 1):
-                perimeter = perimeter + 1
-            if (flat[idx] == 0 and flat[idx + 1] == 1):
+            if flat[idx] == 0 and flat[idx + 1] == 1 or flat[idx] == 0 and flat[idx - 1] == 1:
+            #if (flat[idx] == 0 and flat[idx - 1] == 1):
+            #    perimeter = perimeter + 1
+            #elif (flat[idx] == 0 and flat[idx + 1] == 1):
                 perimeter = perimeter + 1
 
     if perimeter % 2 == 0:
