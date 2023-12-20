@@ -1,0 +1,19 @@
+CC = gcc # compiler
+CFLAGS = -Wall -Werror -Wextra -pedantic # flags
+SRC =  main.c school.c # source codes
+OBJ = $(SRC:.c=.o) # main.o school.o
+NAME = school
+RM = rm -f
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all

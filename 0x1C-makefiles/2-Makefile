@@ -1,0 +1,8 @@
+
+CC = gcc # compiler
+SRC =  main.c school.c # source codes
+OBJ = $(SRC:.c=.o) # main.o school.o
+NAME = school
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
