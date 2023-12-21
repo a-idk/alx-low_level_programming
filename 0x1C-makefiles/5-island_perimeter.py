@@ -22,6 +22,7 @@ def island_perimeter(grid):
             - Grid is completely surrounded by water (1 island or nothing)
             - The island doesn’t have “lakes”.
     """
+
     result = 0  # setting the initial value of perimeter to zero
 
     for idx in range(len(grid)):
